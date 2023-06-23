@@ -10,38 +10,39 @@ This package allows you to create various layers directly from the GTFS and visu
 * The rest should stay the same.
 
 
-#### Ajout des parametres suivants
+## Ajout des parametres suivants: 
 
-# Definir les tranches horaires
-time_windows=[0, 5, 7, 9, 16, 18, 24]
+* time_windows: Definir les tranches horaires
+  #####  Exemple: time_windows=[0, 5, 7, 9, 16, 18, 24]
 
-# Permet de selectionner le type de calendrier:
-#   - semaine (week)
-#   - fin de semaine (weekend) => Resultat errone car les data de samedi et dimanche sont additionnés 
-#   - samedi (saturday)
-#   - dimanche (dimanche)
-#   - Aucun argument => tous les jours sont pris en compte 
-#   mais le calcul de la frequence n'est pas juste car les horaires du samedi (par exemple) sont consideres comme un trajet en plus
-daysofweek = "week"
+* daysofweek: Permet de selectionner le type de calendrier:
+  #####  Exemple: daysofweek = "week"
+  #####   - semaine (week)
+  #####   - fin de semaine (weekend) => Resultat errone car les data de samedi et dimanche sont additionnés 
+  #####   - samedi (saturday)
+  #####   - dimanche (dimanche)
+  #####   - Aucun argument => tous les jours sont pris en compte 
+  #####   mais le calcul de la frequence n'est pas juste car les horaires du samedi (par exemple) sont consideres comme un trajet en plus
 
-# supprime certaines routes dans la liste (ici les lignes de métro)
-drop_routes = ["1", "2", "4", "5"]
 
-# supprime les cas de calendrier pour une journée afin d'eviter des double comptage (la suppresssion est la solution simple, a voir pour trouver mieux)
-drop_samedate = True
+* drop_routes : supprime certaines routes dans la liste (ici les lignes de métro)
+  #####  Exemple: drop_routes = ["1", "2", "4", "5"]
 
-# Ne prend pas en compte les trips associés a un calendar qui commence apres une date
-drop_service_after = "20230619"
+* drop_samedate: supprime les cas de calendrier pour une journée afin d'eviter des double comptage (la suppresssion est la solution simple, a voir pour trouver mieux)
+  #####  Exemple: drop_samedate = True
 
-# Aggrege les routes qui se superpose (cas de la ligne 100 de la STM qui a 2 shapes)
-dissolve_routes = True
-#### TODO => Aggreger selon les linstring qui se croisent
+* drop_service_after: * Ne prend pas en compte les trips associés a un calendar qui commence apres une date
+  #####  Exemple: drop_service_after = "20230619"
 
-# aggrege les frequences par stop, pour toutes lignes qui passe a cet arret de bus (stop_freq_by_route doit etre à True)
-dissolve_stops = True
+* dissolve_stops: Aggrege les routes qui se superpose (cas de la ligne 100 de la STM qui a 2 shapes)
+  #####  Exemple: dissolve_routes = True
+  ###### TODO => Aggreger selon les linstring qui se croisent
 
-# Permet de tagguer les routes associés au stop
-stop_freq_by_route= True
+* dissolve_stops :aggrege les frequences par stop, pour toutes lignes qui passe a cet arret de bus (stop_freq_by_route doit etre à True)
+  #####  Exemple: dissolve_stops = True
+
+* stop_freq_by_route: permet de tagguer les routes associés au stop
+  #####  Exemple: stop_freq_by_route= True
 
     
 
