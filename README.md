@@ -10,7 +10,7 @@ This package allows you to create various layers directly from the GTFS and visu
 * The rest should stay the same.
 
 
-## Ajout des parametres suivants: 
+## Ajout des parametres suivants -  juin 2023: 
 
 * time_windows: Definir les tranches horaires
   #####  Exemple: time_windows=[0, 5, 7, 9, 16, 18, 24]
