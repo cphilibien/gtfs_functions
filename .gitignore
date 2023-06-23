@@ -1,3 +1,6 @@
 data
 example
 *.pyc
+*.zip
+/extract_files
+/GTFS_files

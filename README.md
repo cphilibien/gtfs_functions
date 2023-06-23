@@ -9,6 +9,17 @@ This package allows you to create various layers directly from the GTFS and visu
 * Support to identify route patterns!! Check it out using `feed.routes_patterns`. Shout out to [Tobias Bartsch](https://github.com/tobiasbartsch)
 * The rest should stay the same.
 
+
+#### Ajout des parametres suivants
+
+        daysofweek: str = "",
+        stop_freq_by_route: bool = False,
+        drop_routes: list = [],
+        drop_samedate: bool = False,
+        drop_service_after: str = "",
+        dissolve_route: bool = False
+    
+
 #### Warning! 
 Make sure `stop_times.txt` has no `Null` values in the columns `arrival_time` and `departure_time`. If this is not the case, some functions on this package might fail.
 
@@ -325,6 +336,7 @@ shapes.head(2)
 
 Returns a geodataframe with the frequency for each combination of `stop`, `time of day` and `direction`. Each row with a **Point** geometry. The user can optionally specify `cutoffs` as a list in case the default is not good. These `cutoffs` should be specified at the moment of reading the `Feed` class. These `cutoffs` are the times of days to use as aggregation.
 
+You can add stop_freq_by_route parameter to true if you want frequencies by stop and route
 
 ```python
 time_windows = [0, 6, 9, 15.5, 19, 22, 24]
